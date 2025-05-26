@@ -63,10 +63,29 @@ class HomePage extends StatelessWidget {
               ),
             ),
             TransactionList(),
+            SizedBox(height: 25),
             TipsCarousel()
           ],
         )
         ),
+        bottomNavigationBar: BottomNavigationBar(
+        selectedItemColor: Colors.blue,
+        unselectedItemColor: Colors.black45,
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.home_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.credit_card_outlined),
+            label: '',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.person_outline),
+            label: '',
+          ),
+        ],
+      ),
     );
   }
 }
