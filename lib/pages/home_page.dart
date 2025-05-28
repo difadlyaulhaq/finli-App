@@ -20,6 +20,11 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+    final padding = size.width * 0.04;
+    final cardHeight = size.height * 0.22;
+    final carouselHeight = size.height * 0.23;
+
     return Scaffold(
       backgroundColor: AppColors.primaryColor,
       appBar: AppBar(
@@ -38,11 +43,12 @@ class HomePage extends StatelessWidget {
         ],
       ),
       body: ListView(
-        padding: const EdgeInsets.all(16),
+        padding: EdgeInsets.all(padding),
         children: [
           // Balance Card
           Container(
-            padding: const EdgeInsets.all(20),
+            height: cardHeight,
+            padding: EdgeInsets.all(size.width * 0.05),
             decoration: BoxDecoration(
               color: Colors.blue,
               borderRadius: BorderRadius.circular(20),
@@ -77,7 +83,7 @@ class HomePage extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 20),
+          SizedBox(height: size.height * 0.025),
 
           // Transaction List
           const Text("Latest Transactions", style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
@@ -103,18 +109,18 @@ class HomePage extends StatelessWidget {
             );
           }),
 
-          const SizedBox(height: 25),
+          SizedBox(height: size.height * 0.03),
 
           // Tips Carousel
           SizedBox(
-            height: 180,
+            height: carouselHeight,
             child: PageView.builder(
               itemCount: tips.length,
               controller: PageController(viewportFraction: 0.8),
               itemBuilder: (context, index) {
                 final tip = tips[index];
                 return Container(
-                  margin: const EdgeInsets.only(right: 16),
+                  margin: EdgeInsets.only(right: size.width * 0.04),
                   decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(16),
                     image: DecorationImage(
